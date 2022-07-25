@@ -1,3 +1,4 @@
+/* eslint-disable */
 const resolvers = {
   Query: {
     // returns an array of Tracks that will be used to populate the homepage grid of our web client
@@ -44,6 +45,11 @@ const resolvers = {
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);
     },
+
+    durationInSeconds: ({ length }) => length
+  },
+  Module: {
+    durationInSeconds: ({ length }) => length
   },
 };
 
